@@ -1,0 +1,18 @@
+title: Benchpro Blog
+description: Evidence-led perspectives on scientific contribution, capability, and the people behind research.
+url: https://blog.benchpro.ai
+baseurl: ""
+lang: en
+timezone: UTC
+author: Benchpro
+permalink: /:year/:month/:day/:title/
+markdown: kramdown
+future: false
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: Benchpro

@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-header">
+    <div class="reading-width">
+      <a class="back-link" href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> All stories</a>
+      <p class="eyebrow">Benchpro perspective</p>
+      <h1>{{ page.title }}</h1>
+      {% if page.description %}<p class="post-deck">{{ page.description }}</p>{% endif %}
+      <div class="post-meta">
+        <span>{{ page.author | default: site.author }}</span>
+        <span aria-hidden="true">·</span>
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time>
+      </div>
+    </div>
+  </header>
+  <div class="reading-width prose">
+    {{ content }}
+  </div>
+</article>

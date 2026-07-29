@@ -1,0 +1,45 @@
+---
+layout: default
+title: Benchpro Blog
+description: Stories about making scientific contribution visible, specific, and connected to evidence.
+---
+<section class="index-hero" aria-labelledby="index-title">
+  <div class="shell hero-grid">
+    <div>
+      <p class="eyebrow">Ideas from Benchpro</p>
+      <h1 id="index-title">The work behind science, made visible.</h1>
+    </div>
+    <p class="hero-intro">Perspectives on scientific contribution, credible capability records, and better ways to recognize the people behind research.</p>
+  </div>
+</section>
+
+<section class="shell stories" aria-labelledby="stories-title">
+  <div class="section-heading">
+    <h2 id="stories-title">Latest stories</h2>
+    <p>{{ site.posts | size }} {% if site.posts.size == 1 %}story{% else %}stories{% endif %}</p>
+  </div>
+
+  {% if site.posts.size > 0 %}
+    <div class="post-list">
+      {% for post in site.posts %}
+        <article class="post-preview">
+          <div class="preview-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%B %-d, %Y' }}</time>
+            <span>{{ post.author | default: site.author }}</span>
+          </div>
+          <div class="preview-copy">
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            <p>{{ post.description | default: post.excerpt | strip_html | normalize_whitespace | truncatewords: 34 }}</p>
+            <a class="read-link" href="{{ post.url | relative_url }}" aria-label="Read {{ post.title | escape }}">Read story <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-state">
+      <h3>Our first story is on its way.</h3>
+      <p>In the meantime, learn how Benchpro makes scientific contribution easier to see.</p>
+      <a class="button" href="https://benchpro.ai/about">About Benchpro</a>
+    </div>
+  {% endif %}
+</section>
